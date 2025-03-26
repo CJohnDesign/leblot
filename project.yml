@@ -1,0 +1,24 @@
+name: leblot
+version: 1.0.0
+type: application
+
+build:
+  base: node:18
+  commands:
+    - pnpm install
+    - pnpm build
+
+deploy:
+  strategy: node
+  commands:
+    - pnpm start
+
+packages:
+  - path: packages/*
+    type: workspace
+  - path: client
+    type: workspace
+  - path: agent
+    type: workspace
+  - path: docs
+    type: workspace 
